@@ -37,7 +37,7 @@ class Item < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 1000 }
-  validates :image_id, presence: true
+  validates :image, presence: true
   validates :item_status, presence: true
 end
 

@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container">
   <% if @user.id == current_user.id %>
   　<h2>マイページ</h2>
   <% else %>
@@ -30,6 +30,7 @@
     </div>
     <div class ="col-lg-8" >
       <h4>－投稿作品－ <small>全<%= @items.total_count %>件</small></h4>
+      <%= link_to "新規投稿", new_item_path, class: "btn btn-sm btn-primary" %>
       <div class="d-flex flex-row flex-wrap">
         <% @items.each do |item| %>
           <div class="d-flex flex-column mr-5 mt-3">
