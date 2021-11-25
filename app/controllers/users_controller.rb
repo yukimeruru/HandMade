@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :autheniticate_user!
+  #before_action :autheniticate_user!
 
   def edit
     @user = User.find(params[:id])
