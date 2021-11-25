@@ -9,10 +9,10 @@
 <div class="container offset-2 my-3">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h2>返信作成</h2>
+      <h2>お手紙</h2>
       <%= form_with model: @order, url:"/users/current_user.id/orders", local: true do |f| %>
       　<div class="form-group">
-        　<%= f.label :返信内容 %>
+        　<%= f.label :"お手紙内容" %>
       　　<%= f.text_area :order_comment, class: 'col-6 form-control' %>
       　</div>
         <%= f.hidden_field :comment_status, :value => 'reply' %>

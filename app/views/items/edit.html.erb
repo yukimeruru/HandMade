@@ -13,23 +13,23 @@
       <%= form_with model:@item, url:item_path(@item.id), local:true do |f| %>
         <%= attachment_image_tag @item, :image, :fill, 150, 150 %>
         <div class="form-group">
-          <%= f.label :作品画像 %><br>
+          <%= f.label :"作品画像" %><br>
           <%= f.attachment_field :image %>
         </div>
         <div class="form-group">
-          <%= f.label :作品名 %>
+          <%= f.label :"作品名" %>
         　<%= f.text_field :name, class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :作品説明 %>
+          <%= f.label :"作品説明" %>
           <%= f.text_area :description, class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :タグ %>
+          <%= f.label :"タグ" %>
           <%= f.text_field :tag_list, value: @item.tag_list.join(','), class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :作品ステータス %>
+          <%= f.label :"作品ステータス" %>
         　<%= f.radio_button :item_status, "contribution" %>作品投稿
         　<%= f.radio_button :item_status, "reception" %> 依頼受付中
         　<%= f.radio_button :item_status, "reception_stop" %> 依頼受付停止中

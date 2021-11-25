@@ -25,7 +25,7 @@ class Order < ApplicationRecord
     notification.save if notification.valid?
   end
 
-  enum comment_status: { request: 0, question: 1, reply: 2 }
+  enum comment_status: { request: 0, question: 1, reply: 2, impression: 4 }
 
   validates :user_id, presence: true
   validates :item_id, presence: true
