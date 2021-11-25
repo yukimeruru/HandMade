@@ -25,4 +25,8 @@ class User < ApplicationRecord
 
   attachment :image
 
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :introduction, length: { maximum: 100 }
+
 end

@@ -7,8 +7,12 @@ class Item < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  
-  
+
+  validates :user_id, presence: true
+　validates :name, presence: true
+　validates :description, presence: true, length: { maximum: 1000 }
+　validates :imade_id, presence: true
+　validates :item_status, presence: true
 
   def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
@@ -35,6 +39,7 @@ class Item < ApplicationRecord
   attachment :image
 
   enum item_status: { contribution: 0, reception: 1, reception_stop: 2 }
+
 
 end
 
