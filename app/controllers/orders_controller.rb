@@ -10,7 +10,9 @@ class OrdersController < ApplicationController
     user = User.find(params[:user_id])
     @order = current_user.orders.new(order_params)
     @order.user_id = user.id
+    @order.reply_id = current_user.id
     if @order.save
+      Mailer.send_when_post(user).deliver
       redirect_to items_path
     else
       render :new
@@ -39,7 +41,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status)
+    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status, :reply_id)
   end
 
 end

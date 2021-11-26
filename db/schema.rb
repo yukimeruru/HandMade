@@ -65,13 +65,18 @@ ActiveRecord::Schema.define(version: 2021_11_20_212057) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visiter_id"
-    t.integer "visited_id"
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
     t.integer "item_id"
     t.integer "order_id"
+    t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_notifications_on_item_id"
+    t.index ["order_id"], name: "index_notifications_on_order_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -79,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_212057) do
     t.integer "item_id", null: false
     t.text "order_comment", null: false
     t.integer "comment_status", null: false
+    t.integer "reply_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,7 +106,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_212057) do
     t.datetime "created_at"
     t.string "tenant", limit: 128
     t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
     t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
@@ -116,7 +121,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_212057) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

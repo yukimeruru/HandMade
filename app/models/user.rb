@@ -16,8 +16,6 @@ class User < ApplicationRecord
   has_many :followeds, through: :reverse_of_relationships, source: :follower
   has_many :bookmarks, dependent: :destroy
 
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   def is_followed_by?(user)
     reverse_of_relationships.find_by(follower_id: user.id).present?
