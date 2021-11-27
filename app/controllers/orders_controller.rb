@@ -4,15 +4,16 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @item = Item.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def create
-    user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @order = current_user.orders.new(order_params)
-    @order.user_id = user.id
+    @order.user_id = @user.id
     @order.reply_id = current_user.id
     if @order.save
-      Mailer.send_when_post(user).deliver
+      Mailer.send_when_post(@user).deliver
       redirect_to items_path
     else
       render :new
@@ -21,12 +22,13 @@ class OrdersController < ApplicationController
 
   def reply
     @order = Order.new
-    @order_date = Order.find(params[:id])
+    @order_reply = Order.find(params[:id])
+    @item = @order_reply
   end
 
   def index
-    @user = User.find(params[:id])
-    @orders = @user.orders
+    @user = current_user
+    @orders = @user.orders.order("id DESC")
   end
 
   def show

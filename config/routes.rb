@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :index, :update, :show, :destroy] do
     resources :orders,only: [:create, :destroy]
-    resource :relationships, only: [:destroy]
+    resource :relationships, only: [:destroy, :create]
     get "items/:id/orders/new" => "orders#new" ,as: :new_orders
+    get "orders/:id/reply" => "orders#reply" ,as: :reply_orders
     post "items/:id/orders" => "orders#create"
     get :followers, on: :member
     get :followeds, on: :member
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
 
   get "users/:id/orders" => "orders#index" ,as: :orders
-  get "items/:id/reply" => "orders#reply"
+  get "orders/:id/reply" => "orders#reply" ,as: :reply_orders
   get "orders/:id" => "orders#show" , as: :show_order
   delete "orders/:id" => "orders#destroy"
   get "orders/reply" => "orders#reply"

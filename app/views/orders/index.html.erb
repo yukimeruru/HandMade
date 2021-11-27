@@ -8,19 +8,21 @@
             <th class = "col-3 text-center">ユーザー名</th>
             <th>依頼作成日時</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
       　<tbody>
           <% @orders.each do |order| %>
             <tr>
               <td class = "text-left col-3">
-                <%= link_to user_path(order.user.id) do %>
+                <%= link_to user_path(order.reply_id) do %>
                   <%= attachment_image_tag order.user, :image, :fill, 40, 40, fallback: "no_image_40.jpg" %>
                   <%= order.user.name %>
                 <% end %>
               </td>
               <td class = "text-left"><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), show_order_path(order.id) %></td>
               <td class = "text-left"><%= order.comment_status_i18n %></td>
+              <td class = "text-left"></td>
             </tr>
           <% end %>
         </tbody>
