@@ -39,15 +39,21 @@
  border-radius: 50%;
 }
 
-body {
- background-color: #faebd7;
-}
-
 h2 {
  color: #dc143c;
 }
 
 .link {
   text-decoration: none;
+  list-style: none;
+  color: #ff69b4;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {
+  border: none;
   color: #ff69b4;
 }

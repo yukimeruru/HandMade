@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = @user.items.page(params[:page]).per(18).order("id DESC")
+    @items = @user.items.page(params[:page]).per(8).order("id DESC")
   end
 
   def out
