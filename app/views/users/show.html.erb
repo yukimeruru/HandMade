@@ -9,8 +9,8 @@
       <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "image-user" %>
       <%= @user.name %><br>
       <div class="my-1">
-        フォロー<%= link_to @user.followers.count, followers_user_path(@user) %>：
-        フォロワー<%= link_to @user.followeds.count, followeds_user_path(@user) %>
+        フォロー<%= link_to @user.followers.count, followers_user_path(@user), class: "link" %>：
+        フォロワー<%= link_to @user.followeds.count, followeds_user_path(@user), class: "link" %>
       </div>
       <div class="my-3">
         <%= @user.introduction %>

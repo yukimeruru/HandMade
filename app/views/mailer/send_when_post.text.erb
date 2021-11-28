@@ -1,8 +1,7 @@
 ===============================
-<%= user.name %>様
+<%= @user.name %>様
 ===============================
 
-<% reply_user = User.find(order.reply_id) %>
-<%= reply_user.name %>さんから手紙が届いています！
+HandMadeに手紙が届いています！
 手紙を確認しましょう！
-ユーザー名: <%= user.name %>
+ユーザー名: <%= @user.name %>

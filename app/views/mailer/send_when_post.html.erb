@@ -12,15 +12,14 @@
       </style>
   </head>
   <body>
-    <h2><%= user.name %> 様</h2>
+    <h2><%= @user.name %> 様</h2>
       <hr />
         <p>
-          <% reply_user = User.find(order.reply_id) %>
-          <%= reply_user.name %>さんから手紙が届いています！
+          HandMadeに手紙が届いています！
           手紙を確認しましょう！
         </p>
         <p>
-          ユーザー名: <%= user.name %><br />
+          ユーザー名: <%= @user.name %><br />
         </p>
       <hr />
   </body>

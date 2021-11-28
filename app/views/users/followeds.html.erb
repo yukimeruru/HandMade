@@ -15,8 +15,8 @@
             <tr>
               <td class = "text-center"><%= user.id %></td>
               <td class = "text-left col-3">
-                <%= link_to user_path(user.id) do %>
-                  <%= attachment_image_tag user, :image, :fill, 30, 30, fallback: "no_image_30.jpg", class: "image-user" %>
+                <%= link_to user_path(user.id), class: "link" do %>
+                  <%= attachment_image_tag user, :image, :fill, 30, 30, fallback: "no_image_35.jpg", class: "image-user" %>
                   <%= user.name %>
                 <% end %>
               </td>
