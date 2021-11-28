@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-light" >
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark navbar-light" >
         <div class="container">
           <div>
             <%= link_to root_path, class: "navbar-brand", local: true do %>
@@ -25,13 +25,13 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <div class="mr-5 my-2"><strong>ようこそ、<%= current_user.name %>さん！</strong></div>
-                <li class="nav-item"><%= link_to "マイページ", user_path(current_user.id), class: "nav-link fas fa-user-cog" %></li>
+                <li class="nav-item"><%= link_to "作業場", user_path(current_user.id), class: "nav-link fas fa-hammer" %></li>
                 <li class="nav-item"><%= link_to "作品一覧", items_path, class: "nav-link fas fa-palette" %></li>
                 <li class="nav-item"><%= link_to "職人さん", users_path, class: "nav-link fas fa-users" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fas fa-sign-out-alt" %></li>
               <% else %>
                 <li class="nav-item"><%= link_to "About", about_path, class: "nav-link fas fa-store" %></li>
-                <li class="nav-item"><%= link_to "作品一覧", items_path, class: "nav-link fas fa-cheese" %></li>
+                <li class="nav-item"><%= link_to "作品一覧", items_path, class: "nav-link fas fa-palette" %></li>
                 <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-link fas fa-user-plus" %></li>
                 <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-link fas fa-sign-in-alt" %></li>
               <% end %>
@@ -42,11 +42,12 @@
     </header>
 
     <%= yield %>
+    <div class="my-5"></div>
 
     <footer class="fixed-bottom bg-dark">
       <div class="footer">
         <div class="row">
-          <div class="py-4"></div>
+          <div class="py-3"></div>
         </div>
       </div>
     </footer>

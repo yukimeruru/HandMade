@@ -10,10 +10,11 @@
         <% if @item.user.id == current_user.id %>
         <% else %>
           <% if @item.bookmarked_by?(current_user) %>
-            <%= link_to "ブックマークを外す", item_bookmarks_path(@item), method: :delete %>
+            <%= link_to "ブックマーク", item_bookmarks_path(@item), method: :delete, class: "fas fa-bookmark" %>
           <% else %>
-            <%= link_to "ブックマーク", item_bookmarks_path(@item), method: :post %>
+            <%= link_to "ブックマーク", item_bookmarks_path(@item), method: :post, class: "far fa-bookmark"  %>
           <% end %>
+          
         <% end %>
         <i class="fas fa-eye">
         　<%= @item.impressionist_count(:filter=>:session_hash) %>
@@ -29,7 +30,7 @@
       作品説明<br>
       <%= @item.description %><br>
       <%= @item.item_status_i18n %><br>
-      <%= link_to "お手紙", user_new_orders_path(current_user.id), class: 'btn btn-sm btn-secondary' %>
+      <%= link_to "お手紙", user_new_orders_path(current_user.id), class: 'btn btn-sm btn-secondary fas fa-paper-plane' %>
       <% if @item.user_id == current_user.id %>
         <%= link_to "編集", edit_item_path(@item), class: "btn btn-sm btn-success" %>
         <%= link_to "削除", item_path(@item), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-sm btn-danger" %>

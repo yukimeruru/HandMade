@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def followeds
     user = User.find(params[:id])
-    @users = user..order("id DESC")
+    @users = user.followeds.order("id DESC")
   end
 
   def bookmarks
