@@ -35,8 +35,8 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    Order.find_by(params[:id]).destroy
-    redirect_to orders_path(current_user)
+    Order.find(params[:id]).destroy
+    redirect_to orders_path(current_user.id)
   end
 
   private

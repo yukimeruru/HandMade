@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   is_impressionable
   acts_as_taggable
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   belongs_to :user
 
   has_many :favorites, dependent: :destroy

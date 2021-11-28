@@ -15,7 +15,7 @@
       </div>
       <div class="row my-3 col-3">
         <%= link_to "返信", user_reply_orders_path(current_user.id), class: "btn btn-sm btn-primary" %>
-        <%= link_to "削除" , show_order_path(current_user.id),method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: '本当に削除しますか？' } %>
+        <%= link_to "削除" , destroy_order_path(@order.id), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: '本当に削除しますか？' } %>
       </div>
     </div>
   </div>

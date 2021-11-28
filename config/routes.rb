@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "users/:id/orders" => "orders#index" ,as: :orders
   get "orders/:id/reply" => "orders#reply" ,as: :reply_orders
   get "orders/:id" => "orders#show" , as: :show_order
-  delete "orders/:id" => "orders#destroy"
+  delete "orders/:id" => "orders#destroy" ,as: :destroy_order
   get "orders/reply" => "orders#reply"
 
   get "out" => "users#out"
