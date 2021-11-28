@@ -15,9 +15,10 @@
           <% @orders.each do |order| %>
             <tr>
               <td class = "text-left col-3">
+                <% reply_user = User.find(order.reply_id) %>
                 <%= link_to user_path(order.reply_id) do %>
-                  <%= attachment_image_tag order.user, :image, :fill, 40, 40, fallback: "no_image_40.jpg" %>
-                  <%= order.user.name %>
+                  <%= attachment_image_tag reply_user, :image, :fill, 40, 40, fallback: "no_image_40.jpg" %>
+                  <%= reply_user.name %>
                 <% end %>
               </td>
               <td class = "text-left"><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), show_order_path(order.id) %></td>
