@@ -8,6 +8,6 @@ class Mailer < ApplicationMailer
   def send_when_post(user)
     @user = user
     mail to: user.email,
-         subject: 'お手紙が届きました。'
+         subject: '「HandMade」ポストにお手紙が届きました。'
   end
 end

@@ -14,10 +14,10 @@
       　<tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td class = "text-left col-3">
+              <td class = "text-center col-3">
                 <% reply_user = User.find(order.reply_id) %>
                 <%= link_to user_path(order.reply_id) do %>
-                  <%= attachment_image_tag reply_user, :image, :fill, 40, 40, fallback: "no_image_40.jpg" %>
+                  <%= attachment_image_tag reply_user, :image, :fill, 40, 40, fallback: "no_image_40.jpg", class: "image-user" %>
                   <%= reply_user.name %>
                 <% end %>
               </td>

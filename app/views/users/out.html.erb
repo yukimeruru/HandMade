@@ -11,11 +11,11 @@
   </div>
 
   <div class="row">
-    <div class="col-3">
-      <%= link_to "退会しない" ,user_path(current_user.id), class: 'btn btn-sm btn-success' %>
+    <div class="col-4">
+      <%= link_to "退会しない" ,user_path(current_user.id), class: 'btn btn-md btn-secondary' %>
     </div>
-    <div class="col-3">
-      <%= link_to "退会する" , user_path(current_user.id),method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: '本当に退会しますか？' } %>
+    <div class="col-4">
+      <%= link_to "退会する" , user_path(current_user.id),method: :delete, class: 'btn btn-md btn-danger', data: { confirm: '本当に退会しますか？' } %>
     </div>
   </div>
  </div>

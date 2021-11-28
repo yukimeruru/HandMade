@@ -24,7 +24,6 @@
           <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <div class="mr-5 my-2"><strong>ようこそ、<%= current_user.name %>さん！</strong></div>
                 <li class="nav-item"><%= link_to "作業場", user_path(current_user.id), class: "nav-link fas fa-hammer" %></li>
                 <li class="nav-item"><%= link_to "作品一覧", items_path, class: "nav-link fas fa-palette" %></li>
                 <li class="nav-item"><%= link_to "職人さん", users_path, class: "nav-link fas fa-users" %></li>

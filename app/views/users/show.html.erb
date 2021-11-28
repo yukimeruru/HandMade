@@ -12,15 +12,15 @@
         フォロー<%= link_to @user.followers.count, followers_user_path(@user) %>：
         フォロワー<%= link_to @user.followeds.count, followeds_user_path(@user) %>
       </div>
-      <%= link_to "ブックマーク" ,bookmarks_user_path(@user), class: 'btn btn-sm btn-success fas fa-book-open' %>
       <div class="my-3">
         <%= @user.introduction %>
       </div>
       <div class="my-2">
         <% if @user.id == current_user.id %>
-          <%= link_to "", edit_user_path(current_user.id), class: "btn btn-md btn-success fas fa-user-edit col-5" %>
-          <%= link_to "ポスト", orders_path(current_user.id), class: "btn btn-sm btn-success fas fa-envelope-open" %>
-          <%= link_to "お店をたたむ", out_path, class: "btn btn-sm btn-danger"  %>
+          <div class="my-1"><%= link_to "", edit_user_path(current_user.id), class: "btn btn-md btn-sm btn-secondary fas fa-user-edit col-5" %></div>
+          <div class="my-1"><%= link_to "ブックマーク" ,bookmarks_user_path(@user), class: 'btn btn-sm btn-outline-secondary fas fa-book-open' %></div>
+          <div class="my-1"><%= link_to "ポスト", orders_path(current_user.id), class: "btn btn-sm btn-outline-secondary fas fa-envelope-open" %></div>
+          <div class="my-1"><%= link_to "作業場をたたむ", out_path, class: "btn btn-sm btn-outline-danger fas fa-store-slash" %></div>
         <% else %>
           <% if @user.is_followed_by?(current_user) %>
             <%= link_to "フォローを外す", user_relationships_path(@user), method: :delete, class: "btn btn-sm btn-danger" %>
@@ -32,14 +32,17 @@
     </div>
     <div class ="col-lg-8" >
       <h4>－投稿作品－ <small>全<%= @items.total_count %>件</small></h4>
-      <%= link_to "新規投稿", new_item_path, class: "btn btn-sm btn-primary" %>
+      <%= link_to "新規投稿", new_item_path, class: "btn btn-sm btn-sm btn-secondary" %>
       <div class="d-flex flex-row flex-wrap">
         <% @items.each do |item| %>
           <div class="d-flex flex-column mr-5 mt-3">
             <%= link_to item_path(item.id) do %>
               <%= attachment_image_tag item, :image, :fill, 150, 150 %>
             <% end %>
-            <%= item.name %><br>
+            <div>
+              <i class="fas fa-eye"><%= item.impressionist_count(:filter=>:session_hash) %></i>
+              <i class="fas fa-heart"><%= item.favorites.count %></i>
+            </div>
             <%= item.item_status_i18n %>
           </div>
         <% end %>

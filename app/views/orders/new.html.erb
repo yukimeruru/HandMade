@@ -7,10 +7,12 @@
 <% end %>
 
 <div class="container offset-2 my-3">
+  <h2>お手紙</h2>
   <div class="row">
-    <div class="col-8 mx-auto">
-      <h2>お手紙</h2>
-      <%= attachment_image_tag @item, :image, :fill, 100, 100 %>
+    <div class="col-lg-4 my-5">
+      <%= attachment_image_tag @item, :image, :fill, 250, 250 %>
+    </div>
+    <div class="col-lg-8 my-3">
       <%= form_with model: @order, url: user_orders_path(@item.user_id), local: true do |f| %>
         <div class="form-group my-3">
           <%= f.label :"お手紙内容" %>
@@ -18,9 +20,14 @@
         </div>
         <div class="form-group">
           <%= f.label :"お手紙ステータス" %><br>
-          <%= f.radio_button :comment_status, 'request', checked: true %> 製作依頼
-          <%= f.radio_button :comment_status, 'question' %> 質問・相談
-          <%= f.radio_button :comment_status, 'impression' %> 感想
+          <% if @item.item_status == 2 %>
+            <%= f.radio_button :comment_status, 'request', checked: true %> 製作依頼
+            <%= f.radio_button :comment_status, 'question' %> 質問・相談
+            <%= f.radio_button :comment_status, 'impression' %> 感想
+          <% else %>
+            <%= f.radio_button :comment_status, 'question', checked: true %> 質問・相談
+            <%= f.radio_button :comment_status, 'impression' %> 感想
+          <%end %>
         </div>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.submit "送信", class: 'btn btn-sm btn-secondary' %>

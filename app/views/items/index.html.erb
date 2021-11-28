@@ -21,16 +21,11 @@
               <%= attachment_image_tag item, :image, :fill, 150, 150 %>
             <% end %>
           </div>
-          <div class="my-1">
-            <%= link_to user_path(item.user.id) do %>
-              <%= attachment_image_tag item.user, :image, :fill, 30, 30, fallback: "no_image_30.jpg" %>
-              <%= item.user.name %>
-            <% end %>
+          <div>
+            <i class="fas fa-eye"><%= item.impressionist_count(:filter=>:session_hash) %></i>
+            <i class="fas fa-heart"><%= item.favorites.count %></i>
           </div>
           <%= item.item_status_i18n %>
-          <i class="fas fa-eye">
-        　<%= item.impressionist_count(:filter=>:session_hash) %>
-      　   </i>
         </div>
       <% end %>
     </div>
