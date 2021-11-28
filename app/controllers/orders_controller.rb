@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status, :reply_id)
+    params.require(:order).permit(:user_id, :item_id, :order_comment, :comment_status)
   end
 
 end

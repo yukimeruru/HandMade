@@ -11,7 +11,7 @@
     <div class="col-8 mx-auto">
       <h2>お手紙</h2>
       <%= attachment_image_tag @order_reply.item, :image, :fill, 100, 100 %>
-      <%= form_with model: @order, url:  user_orders_path(@order_reply.reply_id), local: true do |f| %>
+      <%= form_with model: @order, url: user_orders_path(@order_reply.reply_id), local: true do |f| %>
       　<div class="form-group">
         　<%= f.label :"お手紙内容" %>
       　　<%= f.text_area :order_comment, class: 'col-6 form-control' %>
