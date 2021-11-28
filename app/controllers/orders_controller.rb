@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   def reply
     @order = Order.new
     @order_reply = Order.find(params[:id])
-    @item = @order_reply
   end
 
   def index

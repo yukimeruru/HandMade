@@ -10,14 +10,14 @@
   <div class="row">
     <div class="col-8 mx-auto">
       <h2>お手紙</h2>
-      <%= attachment_image_tag @item.item, :image, :fill, 100, 100 %>
-      <%= form_with model: @order, url:  user_orders_path(@item.reply_id), local: true do |f| %>
+      <%= attachment_image_tag @order_reply.item, :image, :fill, 100, 100 %>
+      <%= form_with model: @order, url:  user_orders_path(@order_reply.reply_id), local: true do |f| %>
       　<div class="form-group">
         　<%= f.label :"お手紙内容" %>
       　　<%= f.text_area :order_comment, class: 'col-6 form-control' %>
       　</div>
         <%= f.hidden_field :comment_status, :value => 'reply' %>
-        <%= f.hidden_field :item_id, :value => @item.item_id %>
+        <%= f.hidden_field :item_id, :value => @order_reply.item_id %>
         <%= f.submit "送信", class: 'btn btn-sm btn-secondary' %>
       <% end %>
     </div>
