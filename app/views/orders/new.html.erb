@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <%= f.label :"お手紙の種類" %><br>
-          <% if @item.item_status == 2 %>
+          <% if @item.item_status == "reception" %>
             <%= f.radio_button :comment_status, 'request', checked: true %> 製作依頼
             <%= f.radio_button :comment_status, 'question' %> 質問・相談
             <%= f.radio_button :comment_status, 'impression' %> 感想
