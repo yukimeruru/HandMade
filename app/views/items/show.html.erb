@@ -30,7 +30,8 @@
       <div class="span badge badge-secondary mr-1 p-2" ><%= link_to tag, items_path(tag_name: tag), class: "text-white" %></div>
       <% end %>
       <div class="my-2">
-        作品説明:<%= @item.description %>
+        <作品説明>
+        <div><%=safe_join(@item.description.split("\n"),tag(:br))%></div>
       </div>
       <div class="my-2">
         <% if @item.item_status == "reception" %>

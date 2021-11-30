@@ -13,7 +13,7 @@
         フォロワー<%= link_to @user.followeds.count, followeds_user_path(@user), class: "link" %>
       </div>
       <div class="my-3">
-        <%= @user.introduction %>
+        <%=safe_join(@user.introduction.split("\n"),tag(:br))%>
       </div>
       <div class="my-2">
         <% if @user.id == current_user.id %>
