@@ -30,10 +30,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @item_count = Item.all
     @items = Item.page(params[:page]).per(12).order("id DESC")
     if params[:tag_name]
       @items = Item.tagged_with(params[:tag_name]).order("id DESC")
-      @pages = @items.page(params[:page]).per(12)
+      @item_count = Item.tagged_with(params[:tag_name])
+      @items = @items.page(params[:page]).per(12)
     end
   end
 

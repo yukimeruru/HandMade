@@ -25,7 +25,11 @@
             <i class="fas fa-eye"><%= item.impressionist_count(:filter=>:session_hash) %></i>
             <i class="fas fa-heart"><%= item.favorites.count %></i>
           </div>
-          <%= item.item_status_i18n %>
+          <% if item.item_status == "reception" %>
+            <div class = text-info><strong><%= item.item_status_i18n %></strong></div>
+          <% else %>
+            <div class = text-danger><strong><%= item.item_status_i18n %></strong></div>
+          <% end %>
         </div>
       <% end %>
     </div>

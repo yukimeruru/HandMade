@@ -1,16 +1,23 @@
-<div class = "contener my-3" >
+<div class = "contener offset-3 my-3" >
+  <h2>依頼詳細</h2>
   <div class = "row" >
-    <div class = "col-9 offset-3 my-3" >
-      <h2>依頼詳細</h2>
+    <div class="col-lg-4 my-4">
+      <%= attachment_image_tag @order.item, :image, :fill, 250, 250 %>
+      <div class="my-2">
+        作品：<%= @order.item.name %>
+        <% if @order.item.item_status == "reception" %>
+          <div class = text-info><strong><%= @order.item.item_status_i18n %></strong></div>
+        <% else %>
+          <div class = text-danger><strong><%= @order.item.item_status_i18n %></strong></div>
+        <% end %>
+      </div>
+    </div>
+    <div class = "col-lg-8 my-3" >
       <% reply_user = User.find(@order.reply_id) %>
       <%= link_to user_path(@order.user.id), class: "link" do %>
         <%= attachment_image_tag reply_user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "image-user" %>
         <%= reply_user.name %>
       <% end %>
-      <div class="my-2">
-        作品：<%= @order.item.name %>
-        <%= @order.comment_status_i18n %>
-      </div>
       <div class="my-2">
         依頼内容：<%= @order.order_comment %>
       </div>

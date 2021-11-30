@@ -34,17 +34,20 @@ class UsersController < ApplicationController
 
   def followers
     user = User.find(params[:id])
-    @users = user.followers.order("id DESC")
+    @users_count = user.followers
+    @users = user.followers.page(params[:page]).per(10).order("id DESC")
   end
 
   def followeds
     user = User.find(params[:id])
-    @users = user.followeds.order("id DESC")
+    @users_count = user.followeds
+    @users = user.followeds.page(params[:page]).per(10).order("id DESC")
   end
 
   def bookmarks
     user = User.find(params[:id])
-    @bookmarks = Bookmark.where(user_id: user.id).order("id DESC")
+    @bookmarks_count = Bookmark.where(user_id: user.id)
+    @bookmarks = Bookmark.where(user_id: user.id).page(params[:page]).per(12).order("id DESC")
   end
 
   private

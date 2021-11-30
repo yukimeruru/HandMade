@@ -32,7 +32,13 @@
       <div class="my-2">
         作品説明:<%= @item.description %>
       </div>
-      <div class="my-2"><%= @item.item_status_i18n %></div>
+      <div class="my-2">
+        <% if @item.item_status == "reception" %>
+            <div class = text-info><strong><%= @item.item_status_i18n %></strong></div>
+          <% else %>
+            <div class = text-danger><strong><%= @item.item_status_i18n %></strong></div>
+          <% end %>
+      </div>
       <div class="my-2">
         <% if @item.user_id == current_user.id %>
           <%= link_to "編集", edit_item_path(@item), class: "btn btn-sm btn-sm btn-secondary" %>

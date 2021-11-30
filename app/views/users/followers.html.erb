@@ -1,7 +1,7 @@
 <div class = "contener my-3" >
   <div class = "row" >
     <div class = "col-8 mx-auto" >
-      <h2>フォロー <small>全<%= @users.count %>人</small></h2>
+      <h2>フォロー <small>全<%= @users_count.count %>人</small></h2>
       <table class='table'>
         <thead>
           <tr>
@@ -29,3 +29,4 @@
     </div>
   </div>
 </div>
+<%= paginate @users %>

@@ -24,11 +24,11 @@
         </div>
         <div class="form-group">
           <%= f.label :"作品説明" %>
-          <%= f.text_area :description, class: 'col-6 form-control' %>
+          <%= f.text_area :description, placeholder: "1000文字まで　依頼受付を行う場合は作品の大まかな値段や大きさ制作に必要な期間などを書いておくことをおすすめいたいします。", :size=>"60x10", class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :"タグ" %>
-          <%= f.text_field :tag_list, value: @item.tag_list.join(','), class: 'col-6 form-control' %>
+          <%= f.text_field :tag_list, value: @item.tag_list.join(','), placeholder: ",(半)で区切ることでタグを複数設定できます。", class: 'col-6 form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :"作品ステータス" %>
