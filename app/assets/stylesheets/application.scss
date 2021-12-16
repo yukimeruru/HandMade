@@ -23,37 +23,37 @@
  * {
    margin: 0;
    padding: 0;
-   font-family: 'Kosugi Maru', serif;
+   font-family: 'Kosugi Maru', serif; //フォント変更
  }
 
- .header {
+ .header { //ヘッダー画像
   background-image: image-url("banner-gdff8a5093_1920.jpg");
  }
 
- .about-image {
+ .about-image { //aboutの画像
    width: 24%;
    height: 25%;
 }
 
-.image-user {
+.image-user { //ユーザー画像を丸形にする
  border-radius: 50%;
 }
 
-h2 {
+h2 { //タイトルの色
  color: #dc143c;
 }
 
-.link {
+.link { //リンクのデザイン変更
   text-decoration: none;
   list-style: none;
   color: #ff69b4;
 }
 
-.pagination {
+.pagination { //kaminariのデザイン変更
   justify-content: center;
 }
 
-.pagination>li>a {
+.pagination>li>a { //kaminariのデザイン変更
   border: none;
   color: #ff69b4;
 }
