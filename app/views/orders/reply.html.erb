@@ -18,8 +18,8 @@
         　<%= f.label :"返信内容" %>
       　　<%= f.text_area :order_comment, placeholder: "500文字まで", :size=>"60x5", class: 'col-6 form-control' %>
       　</div>
-        <%= f.hidden_field :comment_status, :value => 'reply' %>
-        <%= f.hidden_field :item_id, :value => @order_reply.item_id %>
+        <%= f.hidden_field :comment_status, :value => 'reply' %> <!--コメントステータス保存--!>
+        <%= f.hidden_field :item_id, :value => @order_reply.item_id %> <!--アイテムID保存--!>
         <%= f.submit "送信", class: 'btn btn-sm btn-secondary' %>
       <% end %>
     </div>

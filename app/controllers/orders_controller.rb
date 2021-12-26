@@ -11,9 +11,9 @@ class OrdersController < ApplicationController
     @user = User.find(params[:user_id])
     @order = current_user.orders.new(order_params)
     @order.user_id = @user.id
-    @order.reply_id = current_user.id
+    @order.reply_id = current_user.id #返信用のユーザーID保存
     if @order.save
-      Mailer.send_when_post(@user).deliver
+      Mailer.send_when_post(@user).deliver #オーダー作成と同時にメール送信
       redirect_to items_path
     else
       render :new
