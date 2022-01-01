@@ -12,6 +12,7 @@
     <div class="col-lg-4 my-5">
       <%= attachment_image_tag @order_reply.item, :image, :fill, 250, 250 %>
     </div>
+    
     <div class="col-lg-8 my-3">
       <%= form_with model: @order, url: user_orders_path(@order_reply.reply_id), local: true do |f| %>
       　<div class="form-group">
